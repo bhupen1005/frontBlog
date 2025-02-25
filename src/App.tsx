@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import {Br} from 'react-router-v6'
-import {BrowserRouter} from 'react-router-v7'
+// import {Br} from 'react-router-v6'
+// import {BrowserRouter} from 'react-router-v7'
 
 
 function App() {
@@ -55,13 +55,13 @@ function App() {
 
   useEffect(() => {
     const MockCookies = {
-      set: (name, value, days) => {
+      set: (name:string, value:string, days:number) => {
         const expires = days
           ? `; expires=${new Date(Date.now() + days * 864e5).toUTCString()}`
           : "";
         document.cookie = `${name}=${value}${expires}; path=/`;
       },
-      get: (name) => {
+      get: (name:string) => {
         return (
           document.cookie
             .split("; ")
@@ -69,7 +69,7 @@ function App() {
             ?.split("=")[1] || null
         );
       },
-      remove: (name) => {
+      remove: (name:string) => {
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
       },
     };
@@ -82,7 +82,7 @@ function App() {
 
   useEffect(() => {
     const MockCookies = {
-      set: (name, value, minutes) => {
+      set: (name:string, value:string, minutes:number) => {
         const expires = minutes
           ? `; expires=${new Date(
               Date.now() + minutes * 60 * 1000
@@ -90,7 +90,7 @@ function App() {
           : "";
         document.cookie = `${name}=${value}${expires}; path=/`;
       },
-      get: (name) => {
+      get: (name:string) => {
         return (
           document.cookie
             .split("; ")
@@ -98,7 +98,7 @@ function App() {
             ?.split("=")[1] || null
         );
       },
-      remove: (name) => {
+      remove: (name:string) => {
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
       },
     };
